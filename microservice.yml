@@ -1,0 +1,43 @@
+omg: 1
+lifecycle:
+  startup:
+    command: ["python", "/app/app.py"]
+actions:
+  push:
+    help: |
+      Push an event with properties or profile properties to CleverTap
+    http:
+      path: /push
+      method: post
+      port: 8000
+      contentType: application/json
+    arguments:
+      event:
+        type: string
+        in: requestBody
+        help: The name of the event
+      properties:
+        type: map
+        in: requestBody
+      profile:
+        type: map
+        in: requestBody
+      identity:
+        type: string
+        required: true
+        in: requestBody
+    output:
+      contentType: application/json
+      type: object
+      properties:
+        success:
+          type: true
+environment:
+  ACCOUNT_ID:
+    help: Your CleverTap account ID
+    type: string
+    required: true
+  ACCOUNT_PASSCODE:
+    help: Your CleverTap account passcode
+    type: string
+    required: true
