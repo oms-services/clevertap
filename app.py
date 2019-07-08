@@ -65,11 +65,15 @@ class Handler:
                 'reason': 'At least one of profile or event must be specified'
             }
 
-        return self.end(res)
+        response_code = 202
+        if res['status'] != 'success':
+            response_code = 400
+
+        return self.end(res, response_code)
 
     @staticmethod
-    def end(res):
-        resp = make_response(json.dumps(res))
+    def end(res, response_code=200):
+        resp = make_response(json.dumps(res), response_code)
         resp.headers['Content-Type'] = 'application/json; charset=utf-8'
         return resp
 

@@ -30,8 +30,12 @@ actions:
       contentType: application/json
       type: object
       properties:
-        success:
-          type: true
+        status:
+          type: string
+          help: The status string from the CleverTap API
+        processed:
+          type: int
+          help: The number of records processed
 environment:
   ACCOUNT_ID:
     help: Your CleverTap account ID
