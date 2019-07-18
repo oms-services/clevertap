@@ -2,6 +2,10 @@ omg: 1
 lifecycle:
   startup:
     command: ["python", "/app/app.py"]
+info:
+  version: 1.0.0
+  title: Clevertap
+  description: This is a clevertap service
 actions:
   push:
     help: |
@@ -36,6 +40,182 @@ actions:
         processed:
           type: int
           help: The number of records processed
+  getEvent:
+    help: |
+      Get an event details from CleverTap.
+    http:
+      path: /getEvent
+      method: post
+      port: 8000
+      contentType: application/json
+    arguments:
+      event:
+        type: string
+        in: requestBody
+        required: true
+        help: The name of the event
+      from:
+        type: int
+        in: requestBody
+        required: true
+        help: Start of date range for events needed. Value specified in format YYYYMMDD.
+      to:
+        type: int
+        in: requestBody
+        required: true
+        help: End of date range for events needed. Value specified in format YYYYMMDD.
+    output:
+      contentType: application/json
+      type: object
+      properties:
+        next_cursor:
+          help: The next cursor ID.
+          type: string
+        records:
+          help: The list of all records related to event.
+          type: list
+        status:
+          help: Returns status with success.
+          type: string
+  getEventCount:
+    help: |
+      Get an event count from CleverTap.
+    http:
+      path: /getEventCount
+      method: post
+      port: 8000
+      contentType: application/json
+    arguments:
+      event:
+        type: string
+        in: requestBody
+        required: true
+        help: The name of the event
+      properties:
+        type: map
+        in: requestBody
+        required: true
+        help: The properties of the event
+      from:
+        type: int
+        in: requestBody
+        required: true
+        help: Start of date range for events needed. Value specified in format YYYYMMDD.
+      to:
+        type: int
+        in: requestBody
+        required: true
+        help: End of date range for events needed. Value specified in format YYYYMMDD.
+    output:
+      contentType: application/json
+      type: object
+      properties:
+        count:
+          help: The count of event.
+          type: string
+        status:
+          help: Returns status with success.
+          type: string
+  getUserProfile:
+    help: |
+      Get an user profile details from CleverTap.
+    http:
+      path: /getUserProfile
+      method: post
+      port: 8000
+      contentType: application/json
+    arguments:
+      event:
+        type: string
+        in: requestBody
+        required: true
+        help: The name of the event
+      from:
+        type: int
+        in: requestBody
+        required: true
+        help: Start of date range for events needed. Value specified in format YYYYMMDD.
+      to:
+        type: int
+        in: requestBody
+        required: true
+        help: End of date range for events needed. Value specified in format YYYYMMDD.
+    output:
+      contentType: application/json
+      type: object
+      properties:
+        next_cursor:
+          help: The next cursor ID.
+          type: string
+        records:
+          help: The list of all records related to event.
+          type: list
+        status:
+          help: Returns status with success.
+          type: string
+  getProfileCount:
+    help: |
+      Get an profile count from CleverTap.
+    http:
+      path: /getProfileCount
+      method: post
+      port: 8000
+      contentType: application/json
+    arguments:
+      event:
+        type: string
+        in: requestBody
+        required: true
+        help: The name of the event
+      properties:
+        type: map
+        in: requestBody
+        required: true
+        help: The properties of the event
+      from:
+        type: int
+        in: requestBody
+        required: true
+        help: Start of date range for events needed. Value specified in format YYYYMMDD.
+      to:
+        type: int
+        in: requestBody
+        required: true
+        help: End of date range for events needed. Value specified in format YYYYMMDD.
+    output:
+      contentType: application/json
+      type: object
+      properties:
+        count:
+          help: The count of event.
+          type: string
+        status:
+          help: Returns status with success.
+          type: string
+  deleteUserProfile:
+    help: |
+      Delete user profile from CleverTap.
+    http:
+      path: /deleteUserProfile
+      method: post
+      port: 8000
+      contentType: application/json
+    arguments:
+      identity:
+        type: string
+        in: requestBody
+        help: The identity of the user profile.
+      guid:
+        type: string
+        in: requestBody
+        help: The guid of the user profile.
+    output:
+      contentType: application/json
+      type: object
+      properties:
+        success:
+          help: Returns status with success or fail.
+          type: string
 environment:
   ACCOUNT_ID:
     help: Your CleverTap account ID
