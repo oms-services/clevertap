@@ -11,8 +11,8 @@ from time import sleep
 class Handler:
     app = Flask(__name__)
 
-    def __init__(self):
-        #super().__init__()
+    def __init__(self) -> None:
+        super().__init__()
         self.account_id = os.getenv('ACCOUNT_ID')
         self.passcode = os.getenv('ACCOUNT_PASSCODE')
 
@@ -128,7 +128,7 @@ class Handler:
     def _eventDetails(self, d):
         eventRes = requests.post(
             'https://api.clevertap.com/1/events.json?batch_size=50',
-            json={"data":d},
+            json=d,
             headers={
                 'X-CleverTap-Account-Id': self.account_id,
                 'X-CleverTap-Passcode': self.passcode,

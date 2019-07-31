@@ -57,12 +57,6 @@ def test_push_fail_request(client):
     response = client.post(url, json=data)
     assert response.status_code == HTTPStatus.BAD_REQUEST
 
-def test_get_event_request(client):
-    data = {"event": "Demo Even18", "from": 20190717, "from": 20190718}
-    url = "/getEvent"
-    response = client.post(url, json=data)
-    assert response.status_code == HTTPStatus.ACCEPTED
-
 def test_get_event_fail_request(client):
     data = {"from": 0, "from": 0}
     url = "/getEvent"
