@@ -1,6 +1,8 @@
 # _CleverTap_ OMG Microservice
 
 [![Open Microservice Guide](https://img.shields.io/badge/OMG%20Enabled-👍-green.svg?)](https://microservice.guide)
+[![Build Status](https://travis-ci.com/omg-services/clevertap.svg?branch=master)](https://travis-ci.com/omg-services/clevertap)
+[![codecov](https://codecov.io/gh/omg-services/clevertap/branch/master/graph/badge.svg)](https://codecov.io/gh/omg-services/clevertap)
 
 An OMG service to access the CleverTap event and profile APIs.
 
