@@ -1,11 +1,17 @@
-omg: 1
-lifecycle:
-  startup:
-    command: ["python", "/app/app.py"]
+oms: 1
 info:
   version: 1.0.0
   title: Clevertap
   description: This is a clevertap service
+  contact:
+    name: Open Microservices
+    url: 'https://openmicroservices.org'
+    email: core@openmicroservices.org
+lifecycle:
+  startup:
+    command:
+      - python
+      - /app/app.py
 actions:
   push:
     help: |
@@ -58,12 +64,16 @@ actions:
         type: int
         in: requestBody
         required: true
-        help: Start of date range for events needed. Value specified in format YYYYMMDD.
+        help: >-
+          Start of date range for events needed. Value specified in format
+          YYYYMMDD.
       to:
         type: int
         in: requestBody
         required: true
-        help: End of date range for events needed. Value specified in format YYYYMMDD.
+        help: >-
+          End of date range for events needed. Value specified in format
+          YYYYMMDD.
     output:
       contentType: application/json
       type: object
@@ -100,12 +110,16 @@ actions:
         type: int
         in: requestBody
         required: true
-        help: Start of date range for events needed. Value specified in format YYYYMMDD.
+        help: >-
+          Start of date range for events needed. Value specified in format
+          YYYYMMDD.
       to:
         type: int
         in: requestBody
         required: true
-        help: End of date range for events needed. Value specified in format YYYYMMDD.
+        help: >-
+          End of date range for events needed. Value specified in format
+          YYYYMMDD.
     output:
       contentType: application/json
       type: object
@@ -134,12 +148,16 @@ actions:
         type: int
         in: requestBody
         required: true
-        help: Start of date range for events needed. Value specified in format YYYYMMDD.
+        help: >-
+          Start of date range for events needed. Value specified in format
+          YYYYMMDD.
       to:
         type: int
         in: requestBody
         required: true
-        help: End of date range for events needed. Value specified in format YYYYMMDD.
+        help: >-
+          End of date range for events needed. Value specified in format
+          YYYYMMDD.
     output:
       contentType: application/json
       type: object
@@ -176,12 +194,16 @@ actions:
         type: int
         in: requestBody
         required: true
-        help: Start of date range for events needed. Value specified in format YYYYMMDD.
+        help: >-
+          Start of date range for events needed. Value specified in format
+          YYYYMMDD.
       to:
         type: int
         in: requestBody
         required: true
-        help: End of date range for events needed. Value specified in format YYYYMMDD.
+        help: >-
+          End of date range for events needed. Value specified in format
+          YYYYMMDD.
     output:
       contentType: application/json
       type: object
